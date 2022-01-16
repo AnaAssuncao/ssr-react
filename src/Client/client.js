@@ -1,9 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import { hydrate, render } from "react-dom";
+import fetch from "node-fetch";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
-import Home from '../Components/Home'
+import Home from "../Components/Home";
 
-ReactDOM.hydrate(
-  <Home />,
-  document.getElementById('root')
-);
+const client = new ApolloClient({
+  link: createHttpLink({
+    uri: "https://48p1r2roz4.sse.codesandbox.io",
+    credentials: "same-origin",
+    fetch: fetch,
+  }),
+  ssrForceFetchDelay: 100,
+  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
+});
+
+const rootElement = document.getElementById("root");
+
+if (rootElement.hasChildNodes) {
+  hydrate(
+    <ApolloProvider client={client}>
+      <Home />
+    </ApolloProvider>,
+    rootElement
+  );
+} else {
+  <div>RENDER</div>;
+}

@@ -1,6 +1,6 @@
 import React from "react";
+import fetch from 'cross-fetch';
 import { hydrate, render } from "react-dom";
-import fetch from "node-fetch";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 import Home from "../Components/Home";

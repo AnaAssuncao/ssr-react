@@ -1,20 +1,4 @@
 {
   "presets": ["@babel/preset-react"],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["."],
-        "alias": {
-          "graphql": "./src/graphql",
-          "infra": "./src/infra",
-          "routes": "./src/routes",
-          "components": "./src/components",
-          "pages": "./src/pages",
-          "assets": "./src/assets"
-        },
-        "cwd": "babelrc"
-      }
-    ]
-  ]
+
 }

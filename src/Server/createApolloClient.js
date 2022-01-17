@@ -1,11 +1,11 @@
+import React from 'react'
 import {
   ApolloClient,
   createHttpLink,
   InMemoryCache,
   ApolloProvider,
 } from "@apollo/client";
-import fetch from "node-fetch";
-
+import fetch from 'cross-fetch';
 import Home from "../Components/Home";
 
 const createApolloClient = (req, res, next) => {

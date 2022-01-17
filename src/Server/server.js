@@ -2,6 +2,10 @@ import express from "express";
 import React from "react";
 import ReactDOM from "react-dom/server";
 import { getDataFromTree } from "@apollo/client/react/ssr";
+import {
+  renderToString,
+  renderToStaticMarkup
+} from 'react-dom/server'
 
 import Html from "./Html";
 import createApolloClient from "./createApolloClient";
@@ -14,9 +18,9 @@ app.use(express.static("./build/client"));
 /** create apollo client */
 app.use(createApolloClient);
 
-app.use((req, use) => {
+app.use((req, res) => {
   // Replace the TODO with this
-  getDataFromTree(App)
+  getDataFromTree(res.App)
     .then(() => {
       // Extract the entirety of the Apollo Client cache's current state
       const content = renderToString(res.App);

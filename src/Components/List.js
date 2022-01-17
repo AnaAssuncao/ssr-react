@@ -1,7 +1,6 @@
 import React from "react";
 import * as El from '../Style/HomeStyle.style'
 
-
 export default function List({dataList}) {
 
   return (

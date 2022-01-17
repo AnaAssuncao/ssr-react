@@ -2,8 +2,9 @@ import React from "react";
 import fetch from 'cross-fetch';
 import { hydrate, render } from "react-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider,createHttpLink } from "@apollo/client";
+import { BrowserRouter } from 'react-router-dom'
 
-import Home from "../Components/Home";
+import Layout from "../Routes/Layout";
 
 import { ThemeProvider } from 'styled-components'
 import { Theme } from '../Style/HomeStyle.style'
@@ -24,9 +25,11 @@ const rootElement = document.getElementById('root')
 if (rootElement.hasChildNodes) {
   hydrate(
     <ApolloProvider client={client}>
-      <ThemeProvider theme={Theme}>
-          <Home />
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={Theme}>
+            <Layout />
+          </ThemeProvider>
+        </BrowserRouter>
     </ApolloProvider>,
     rootElement
   );

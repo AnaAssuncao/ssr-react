@@ -6,7 +6,8 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 import fetch from 'cross-fetch';
-import Home from "../Components/Home";
+import Layout from "../Routes/Layout";
+import { StaticRouter } from "react-router-dom/server";
 import { ThemeProvider } from 'styled-components'
 import { Theme } from '../Style/HomeStyle.style'
 
@@ -26,9 +27,12 @@ const createApolloClient = (req, res, next) => {
 
   res.App = (
     <ApolloProvider client={res.apolloClient}>
-          <ThemeProvider theme={Theme}>
-          <Home />
+
+      <StaticRouter>
+        <ThemeProvider theme={Theme}>
+          <Layout />
         </ThemeProvider>
+      </StaticRouter>
     </ApolloProvider>
   );
 

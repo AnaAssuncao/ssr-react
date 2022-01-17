@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-export const Theme = {
-
-}
-
 export const HomeContainer = styled.div`
   display: flex;
   justify-content: center;

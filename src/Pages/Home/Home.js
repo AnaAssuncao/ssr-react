@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import List  from "./List";
-import * as El from '../Style/HomeStyle.style'
+import * as El from './HomeStyle.style'
 
 const EXCHANGE_RATES = gql`
   query GetExchangeRates {

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Html = ({ content, state }) => (
+const Html = ({ content, styles, state }) => (
   <html>
     <head>
       <meta
@@ -12,8 +12,11 @@ const Html = ({ content, state }) => (
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
         rel="stylesheet"
       ></link>
+        <head dangerouslySetInnerHTML={{
+          __html: styles
+        }}/>
 
-      <script src="client.bundle.js"></script>
+      <script src="client.bundle.js" defer></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `window.__APOLLO_STATE__=${JSON.stringify(state).replace(

@@ -1,5 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
+import List  from "./List";
+import * as El from '../Style/HomeStyle.style'
 
 const EXCHANGE_RATES = gql`
   query GetExchangeRates {
@@ -15,14 +17,13 @@ export default function Home(props) {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-
+    
   const testData = data.rates.slice(0, 2);
 
-  return testData.map(({ currency, rate }) => (
-    <div key={currency}>
-      <p>
-        {currency}: {rate}
-      </p>
-    </div>
-  ));
+  return (
+   <El.HomeContainer>
+     <El.Title>Lista</El.Title>
+     <List dataList={testData}/>
+   </El.HomeContainer>
+  )
 }

@@ -7,6 +7,8 @@ import {
 } from "@apollo/client";
 import fetch from 'cross-fetch';
 import Home from "../Components/Home";
+import { ThemeProvider } from 'styled-components'
+import { Theme } from '../Style/HomeStyle.style'
 
 const createApolloClient = (req, res, next) => {
   res.apolloClient = new ApolloClient({
@@ -24,7 +26,9 @@ const createApolloClient = (req, res, next) => {
 
   res.App = (
     <ApolloProvider client={res.apolloClient}>
-      <Home />
+          <ThemeProvider theme={Theme}>
+          <Home />
+        </ThemeProvider>
     </ApolloProvider>
   );
 

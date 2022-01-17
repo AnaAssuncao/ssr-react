@@ -6,6 +6,7 @@ import {
   renderToString,
   renderToStaticMarkup
 } from 'react-dom/server'
+import { ServerStyleSheet } from 'styled-components'
 
 import Html from "./Html";
 import createApolloClient from "./createApolloClient";
@@ -20,14 +21,16 @@ app.use(createApolloClient);
 
 app.use((req, res) => {
   // Replace the TODO with this
-  getDataFromTree(res.App)
+  getDataFromTree(res.App,renderToString)
     .then(() => {
+      const sheet = new ServerStyleSheet()
       // Extract the entirety of the Apollo Client cache's current state
-      const content = renderToString(res.App);
+      const content = renderToString(sheet.collectStyles(res.App) )
       const initialState = res.apolloClient.extract(); // =client.extract();
+      const styleTags = sheet.getStyleTags()
 
       // Add both the page content and the cache state to a top-level component
-      const html = <Html content={content} state={initialState} />;
+      const html = <Html content={content} styles={styleTags} state={initialState} />;
 
       // Render the component to static markup and return it
       res.status(200);

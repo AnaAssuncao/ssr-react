@@ -1,9 +1,12 @@
 import React from "react";
 import fetch from 'cross-fetch';
 import { hydrate, render } from "react-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider,createHttpLink } from "@apollo/client";
 
 import Home from "../Components/Home";
+
+import { ThemeProvider } from 'styled-components'
+import { Theme } from '../Style/HomeStyle.style'
 
 const client = new ApolloClient({
   link: createHttpLink({
@@ -13,17 +16,21 @@ const client = new ApolloClient({
   }),
   ssrForceFetchDelay: 100,
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
+  ssrForceFetchDelay: 100
 });
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root')
 
 if (rootElement.hasChildNodes) {
   hydrate(
     <ApolloProvider client={client}>
-      <Home />
+      <ThemeProvider theme={Theme}>
+          <Home />
+        </ThemeProvider>
     </ApolloProvider>,
     rootElement
   );
 } else {
-  <div>RENDER</div>;
+  render( <div>RENDER</div>,rootElement)
+ 
 }

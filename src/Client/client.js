@@ -7,7 +7,8 @@ import { BrowserRouter } from 'react-router-dom'
 import Layout from "../Routes/Layout";
 
 import { ThemeProvider } from 'styled-components'
-import { Theme } from '../Style/HomeStyle.style'
+import { Theme } from '../Style/Theme'
+import  GlobalStyle  from '../Style/Global'
 
 const client = new ApolloClient({
   link: createHttpLink({
@@ -27,6 +28,7 @@ if (rootElement.hasChildNodes) {
     <ApolloProvider client={client}>
         <BrowserRouter>
           <ThemeProvider theme={Theme}>
+            <GlobalStyle />
             <Layout />
           </ThemeProvider>
         </BrowserRouter>

@@ -1,18 +1,17 @@
+import React from "react";
 import Home from '../Pages/Home/Home'
 
-const routes = [
+export const arrRoutes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     exact: true,
-    component: Home,
+    component: <Home />,
   },
   {
-    path: '/test',
-    name: 'test',
+    path: '/list',
+    name: 'Lista',
     exact: false,
-    component: Home,
+    component: <Home />,
   }
 ]
-
-export default routes

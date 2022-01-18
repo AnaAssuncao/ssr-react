@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-import List  from "./List";
-import * as El from './HomeStyle.style'
+import Cards  from "../../Components/Cards/Cards";
+import * as El from './Home.style'
 
 const EXCHANGE_RATES = gql`
   query GetExchangeRates {
@@ -22,8 +22,8 @@ export default function Home(props) {
 
   return (
    <El.HomeContainer>
-     <El.Title>Lista</El.Title>
-     <List dataList={testData}/>
+     <El.Title>Cards</El.Title>
+     <Cards dataCard={testData}/>
    </El.HomeContainer>
   )
 }

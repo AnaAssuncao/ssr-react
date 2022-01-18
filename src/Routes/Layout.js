@@ -1,30 +1,34 @@
 import React from "react";
-import { Route,Switch } from "react-router-dom";
-import routes from "./Routes"
+import { Route, Routes } from "react-router";
+import {arrRoutes} from "./Routes"
+
+import NavBar from "../Components/NavBar/NavBar"
+import Footer from "../Components/Footer/Footer"
+import * as El from './Layout.style'
 
 export default function Layout (){
 
     return(
-        <>
-        <NavBar/>
-        {
-          <Switch>
-            {routes.map((route) => {
-              const { component: Component, path, name,exact} = route;
-              return (
-                <Route
-                  path={path}
-                  key={name}
-                  exact={exact}
-                  component={ Component}
-                >
-                </Route>
-              )
-            })}
-          </Switch>
-        }
-        <Footer/>
-        </>
+        <El.Container>
+          <NavBar/>
+          {
+            <Routes>
+              {arrRoutes.map((route) => {
+                const { component: Component, path, name,exact} = route;
+                return (
+                  <Route
+                    path={path}
+                    key={name}
+                    exact={exact}
+                    element={ Component}
+                  >
+                  </Route>
+                )
+              })}
+            </Routes>
+          }
+          <Footer/>
+        </El.Container>
     )
      
 }

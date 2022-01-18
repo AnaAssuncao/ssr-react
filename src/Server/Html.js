@@ -11,10 +11,8 @@ const Html = ({ content, styles, state }) => (
       <link
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
         rel="stylesheet"
-      ></link>
-        <head dangerouslySetInnerHTML={{
-          __html: styles
-        }}/>
+      />
+      <head dangerouslySetInnerHTML={{__html: styles}}/>
 
       <script src="client.bundle.js" defer></script>
       <script

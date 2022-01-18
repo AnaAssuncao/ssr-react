@@ -1,22 +1,16 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
+  align-items:center;
   display: flex;
+  flex-direction:column;
   justify-content: center;
-  border: 5px solid #000;
+  flex-grow: 2;
 `
+
 export const Title = styled.h1`
   color: #456515;
   font-size:32px;
   font-weight: 600;
-`
-
-export const ListContainer = styled.ul`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-`
-export const ListItem = styled.div`
-  display: flex;
-  justify-content: center;
+  margin: 15px 0;
 `

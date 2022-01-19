@@ -1,5 +1,6 @@
 import React from "react";
 import Home from '../Pages/Home/Home'
+import Information from '../Pages/Information/Information'
 
 export const arrRoutes = [
   {
@@ -12,6 +13,6 @@ export const arrRoutes = [
     path: '/list',
     name: 'Lista',
     exact: false,
-    component: <Home />,
+    component: <Information />,
   }
 ]

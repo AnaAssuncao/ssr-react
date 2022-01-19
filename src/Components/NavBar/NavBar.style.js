@@ -4,7 +4,7 @@ export const NavBarContainer = styled.header`
     align-items: center;
     box-shadow: 0px 1px 5px #ebebeb;
     display: flex;
-    height:70px;
+    height:10%;
     justify-content: space-between;
     widht:100%;
 `

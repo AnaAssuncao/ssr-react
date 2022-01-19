@@ -22,7 +22,7 @@ const client = new ApolloClient({
 });
 
 const rootElement = document.getElementById('root')
-
+console.log(rootElement)
 if (rootElement.hasChildNodes) {
   hydrate(
     <ApolloProvider client={client}>

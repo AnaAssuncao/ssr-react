@@ -15,7 +15,7 @@ export default function Cards({dataCard}) {
   const handleIsCalc = (dataCurrency) =>{
     isCalc(false)
   }
-
+  
   return (
     <El.Cards>
       {calc?

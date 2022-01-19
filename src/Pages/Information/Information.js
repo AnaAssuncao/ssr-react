@@ -16,15 +16,24 @@ const EXCHANGE_RATES = gql`
 export default function Information(props) {
   const { loading, error, data } = useQuery(EXCHANGE_RATES);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return (
+    <El.HomeContainer>
+       <p>Loading...</p>
+    </El.HomeContainer>
+ )
+  ;
+  if (error) return (
+  <El.HomeContainer>
+  <p>Erro :( </p>
+</El.HomeContainer>
+);
     
-  const testData = data.rates.slice(0, 8);
-
+    const dataCard = data.rates.slice(0,20)
+    
   return (
    <El.HomeContainer>
      <El.Title>Taxa de câmbio</El.Title>
-     <Cards dataCard={testData}/>
+     <Cards dataCard={dataCard}/>
    </El.HomeContainer>
   )
 }

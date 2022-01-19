@@ -4,7 +4,7 @@ export const HomeContainer = styled.div`
   align-items:center;
   display: flex;
   flex-direction:column;
-  flex-grow: 2;
+  height:60%;
   position: relative;
 `
 

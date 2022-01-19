@@ -3,12 +3,14 @@ import styled from 'styled-components'
 export const Cards= styled.div`
   display: flex;
   justify-content:center;
+  overflow-y: scroll;
+  margin-bottom:15px;
   width: 100%;
 `
 
 export const CardsContainer = styled.div`
   display: flex;
-  height: 65%;
+  height: 100%;
   justify-content:center;
   flex-wrap: wrap;
   width: 100%;

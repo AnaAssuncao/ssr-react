@@ -27,10 +27,11 @@ export const Button= styled.button`
 
 `
 
-export const Info = styled.div`
+export const CurrencyInfo = styled.div`
   display: flex;
   flex-direction: column;
-  margin:30px 15px 0 0 ;
+  margin-left:20px;
+  margin-right:30px;
 `
 
 export const CardTitle = styled.h3`
@@ -48,16 +49,15 @@ export const CardSubTitle = styled.span`
 `
 
 export const CardCalc = styled.div`
-  align-content: center;
+  align-items: center;
   display: flex;
   justify-content: center;
-  width: 50%;
 `
 
 export const CardInput = styled.input`
-border-bottom: 1px solid #000;
+  border-bottom: 1px solid #000;
   color: #191f28;
-  font-size:24px;
+  font-size:26px;
   text-align: center;
   width: 20%;
 
@@ -71,13 +71,13 @@ border-bottom: 1px solid #000;
 export const Rate = styled.span`
   color: #191f28;
   line-height: 1.33;
-  font-size:24px;
+  font-size:28px;
   margin-right: 15px;
 `
 
 export const RespCalc = styled.span`
   color: #191f28;
   line-height: 1.33;
-  font-size:24px;
+  font-size:28px;
   font-weight: 600;
 `

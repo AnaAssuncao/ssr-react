@@ -28,7 +28,7 @@ export default function Information(props) {
 </El.HomeContainer>
 );
     
-    const dataCard = data.rates.slice(0,20)
+    const dataCard = data.rates
     
   return (
    <El.HomeContainer>

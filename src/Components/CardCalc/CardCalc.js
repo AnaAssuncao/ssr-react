@@ -4,19 +4,21 @@ import * as El from './CardCalc.style'
 function CurrencyInfomation ({nameInfo, currencyInfo}) {
   return(
     <El.CurrencyInfo>
-        <El.CardTitle> {nameInfo} </El.CardTitle>
-        <El.CardSubTitle>{ currencyInfo} </El.CardSubTitle>
+        <El.CardTitle> {currencyInfo} </El.CardTitle>
+        <El.CardSubTitle>{ nameInfo} </El.CardSubTitle>
     </El.CurrencyInfo>
   )
 }
 
-export default function CardCalc({objCurrency,handleIsCalc}) {
+export default function CardCalc({objCurrency,objValueCompare, handleIsCalc}) {
   const { name, currency, rate } = objCurrency
-  const [valueUSD, setValueUSD] = useState(1)
+  const { nameValueCompare, currencyValueCompare, rateValueCompare } = objValueCompare
 
-  const handleValue= (qt) =>{
-    const resp = Number(rate) * qt
-    setValueUSD(resp)
+  const [value, setValue] = useState(rateValueCompare)
+
+  const handleValue= (value) =>{
+    const resp = Number(rate) * value
+    setValue(resp)
   }
 
   return (
@@ -25,17 +27,16 @@ export default function CardCalc({objCurrency,handleIsCalc}) {
           <El.CardCalc>
               <El.CardInput 
                 defaultValue={1}
-                maxlength={8} 
+                maxLength={8} 
                 onChange={(e)=>handleValue(e.target.value)}></El.CardInput>
-              <CurrencyInfomation nameInfo={"USD"} currencyInfo={"United States Dollar"}> </ CurrencyInfomation >
+              <CurrencyInfomation nameInfo={nameValueCompare} currencyInfo={currencyValueCompare}> </ CurrencyInfomation >
 
               <El.Rate>  x  {Number(rate).toFixed(4)}</El.Rate>
               <CurrencyInfomation nameInfo={name} currencyInfo={currency}/>
          
-              <El.RespCalc> = {Number(valueUSD).toFixed(4)}</El.RespCalc>
+              <El.RespCalc> = {Number(value).toFixed(4)}</El.RespCalc>
               <CurrencyInfomation nameInfo={name} currencyInfo={currency}/>
           </El.CardCalc>
- 
         </El.Container>
   )
 

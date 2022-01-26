@@ -3,6 +3,12 @@ import * as El from './Cards.style'
 
 import CardCalc from '../CardCalc/CardCalc'
 
+const objValueCompare={
+  nameValueCompare:"United States Dollar",
+   currencyValueCompare:'USD', 
+   rateValueCompare:1
+}
+
 export default function Cards({dataCard}) {
   const [calc, isCalc] = useState(false)
   const [objCurrency,setObjCurrency]= useState(null)
@@ -12,14 +18,14 @@ export default function Cards({dataCard}) {
     setObjCurrency(dataCurrency)
   }
 
-  const handleIsCalc = (dataCurrency) =>{
+  const handleIsCalc = () =>{
     isCalc(false)
   }
-  
+
   return (
     <El.Cards>
       {calc?
-        <CardCalc objCurrency={objCurrency} handleIsCalc={handleIsCalc}></CardCalc>
+        <CardCalc objCurrency={objCurrency} handleIsCalc={handleIsCalc} objValueCompare={objValueCompare}></CardCalc>
           :
           < El.CardsContainer>
         {dataCard.map(({ name, currency, rate }) => (
